@@ -17,7 +17,7 @@
  */
 
 import 'dart:async';
-import 'dart:io' as io;
+import 'dart:io' if (dart.library.js) 'package:node_io/node_io.dart' as io;
 import 'dart:convert';
 
 import '../../telegram/telegram.dart';

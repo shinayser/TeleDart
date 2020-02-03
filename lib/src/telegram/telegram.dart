@@ -18,9 +18,10 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io' as io;
+import 'dart:io' if (dart.library.js) 'package:node_io/node_io.dart' as io;
 
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart'
+    if (dart.library.js) 'package:node_http/node_http.dart' as http;
 
 import 'model.dart';
 import '../util/http_client.dart';
@@ -1815,7 +1816,9 @@ class Telegram {
 
 class TelegramException implements Exception {
   String cause;
+
   TelegramException(this.cause);
+
   @override
   String toString() => 'TelegramException: ${cause}';
 }

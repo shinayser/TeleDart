@@ -19,7 +19,8 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart'
+    if (dart.library.js) 'package:node_http/node_http.dart' as http;
 
 class HttpClient {
   /// HTTP get method
@@ -77,7 +78,9 @@ class HttpClient {
 
 class HttpClientException implements Exception {
   String cause;
+
   HttpClientException(this.cause);
+
   @override
   String toString() => 'HttpClientException: ${cause}';
 }

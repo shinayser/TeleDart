@@ -17,7 +17,7 @@
  */
 
 import 'dart:async';
-import 'dart:io' as io;
+import 'dart:io' if (dart.library.js) 'package:node_io/node_io.dart' as io;
 
 import 'event/event.dart';
 import 'fetch/long_polling.dart';
@@ -478,7 +478,9 @@ class TeleDart {
 
 class TeleDartException implements Exception {
   String cause;
+
   TeleDartException(this.cause);
+
   @override
   String toString() => 'TeleDartException: ${cause}';
 }
